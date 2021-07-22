@@ -1,0 +1,2 @@
+Animera förflyttning
+https://stackoverflow.com/questions/43626268/html-canvas-move-circle-from-a-to-b-with-animation

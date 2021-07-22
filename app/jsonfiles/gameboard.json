@@ -1,0 +1,115 @@
+{
+    "tiles":
+        {
+            "1": {
+                "x":175,
+                "y":700,
+                "w":100,
+                "h":100,
+                "title":"Bankutgång",
+                "type":"bank exit"
+            },
+            "2": {
+                "x":100,
+                "y":700,
+                "w":75,
+                "h":100,
+                "title":"Gå till ruta 22",
+                "type":"special"
+            },
+            "3": {
+                "x":0,
+                "y":700,
+                "w":100,
+                "h":100,
+                "title":"Finanstidning",
+                "type":"newspaper"
+            },
+            "4": {
+                "x":0,
+                "y":625,
+                "w":100,
+                "h":75,
+                "title":"Byggföretag",
+                "type":"property",
+                "price":10000,
+                "companygroup": "1"
+
+            },
+            "5": {
+                "x":0,
+                "y":550,
+                "w":100,
+                "h":75,
+                "title":"Måleri",
+                "type":"property",
+                "price":10000,
+                "companygroup": "1"
+            },
+            "6": {
+                "x":0,
+                "y":475,
+                "w":100,
+                "h":75,
+                "title":"Elfirma",
+                "type":"property",
+                "price":15000,
+                "companygroup": "1"
+            },
+            "7": {
+                "x":0,
+                "y":400,
+                "w":100,
+                "h":75,
+                "title":"Börstips",
+                "type":"tips"
+            },
+            "8": {
+                "x":0,
+                "y":325,
+                "w":100,
+                "h":75,
+                "title":"Parkeringshus",
+                "type":"property",
+                "price":40000
+            },
+            "9": {
+                "x":0,
+                "y":250,
+                "w":100,
+                "h":75,
+                "title":"Hotell",
+                "type":"property",
+                "price":20000,
+                "companygroup": "2"
+            },
+            "10": {
+                "x":0,
+                "y":175,
+                "w":100,
+                "h":75,
+                "title":"Bilverkstad",
+                "type":"property",
+                "price":20000,
+                "companygroup": "2"
+            },
+            "11": {
+                "x":0,
+                "y":100,
+                "w":100,
+                "h":75,
+                "title":"Möbler & Inredning",
+                "type":"property",
+                "price":20000,
+                "companygroup": "3"
+            },
+            "12": {
+                "x":0,
+                "y":0,
+                "w":100,
+                "h":100,
+                "title":"Bankfilial",
+                "type":"bank"
+            }
+        }
+}

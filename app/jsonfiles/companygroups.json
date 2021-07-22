@@ -1,0 +1,16 @@
+{
+
+    "1": {
+        "name": "Tjänstebolaget AB",
+        "color": "#C7EAC5"
+    },
+    "2": {
+        "name": "Servicebolaget AB",
+        "color": "#E8C5EA"
+    },
+    "3": {
+        "name": "Affärsbolaget AB",
+        "color": "#FFFEBE"
+    }
+
+}
