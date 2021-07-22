@@ -23,12 +23,20 @@ module.exports = {
         index = turn_order.indexOf(gamestate['current_turn']['playerID']) + 1
 
         if (index < turn_order.length){
-            gamestate['current_turn']['playerID'] = turn_order[index]
+            next_player = turn_order[index]
             console.log("next turn: " + gamestate['current_turn']['playerID'])
         } else{
-            gamestate['current_turn']['playerID'] = turn_order[0]
+            next_player = turn_order[0]
             console.log("next turn: " + gamestate['current_turn']['playerID'])
-        }       
+        }
+
+        gamestate['current_turn'] = {
+            "playerID": next_player,
+            "hasRolled": false,
+            "hasBoughtProperty": false,
+            "hasBoughtStock":false,
+            "hasBuilt":false
+        }
     },
 
     generateTurnOrder: function(gamestate){

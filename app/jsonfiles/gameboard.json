@@ -190,7 +190,225 @@
                 "h":100,
                 "title":"Fängelse",
                 "type":"prison"
+            },
+            "22": {
+                "x":700,
+                "y":100,
+                "w":100,
+                "h":75,
+                "title":"Telecom",
+                "type":"property",
+                "price":25000,
+                "companygroup": "5"
+            },
+            "23": {
+                "x":700,
+                "y":175,
+                "w":100,
+                "h":75,
+                "title":"IT-support",
+                "type":"property",
+                "price":25000,
+                "companygroup": "5"
+            },
+            "24": {
+                "x":700,
+                "y":250,
+                "w":100,
+                "h":75,
+                "title":"Industri- design",
+                "type":"property",
+                "price":30000,
+                "companygroup": "5"
+            },
+            "25": {
+                "x":700,
+                "y":325,
+                "w":100,
+                "h":75,
+                "title":"Börstips",
+                "type":"tips"
+            },
+            "26": {
+                "x":700,
+                "y":400,
+                "w":100,
+                "h":75,
+                "title":"Hållbar Energi",
+                "type":"property",
+                "price":40000,
+                "companygroup": "6"
+            },
+            "27": {
+                "x":700,
+                "y":475,
+                "w":100,
+                "h":75,
+                "title":"Läkemedels- industri",
+                "type":"property",
+                "price":30000,
+                "companygroup": "6"
+            },
+            "28": {
+                "x":700,
+                "y":550,
+                "w":100,
+                "h":75,
+                "title":"Aktie- utdelning",
+                "type":"bank"
+            },
+            "29": {
+                "x":700,
+                "y":625,
+                "w":100,
+                "h":75,
+                "title":"Bioteknik",
+                "type":"property",
+                "price":40000,
+                "companygroup": "6"
+            },
+            "30": {
+                "x":700,
+                "y":700,
+                "w":100,
+                "h":100,
+                "title":"Finanstidning",
+                "type":"newspaper"
+            },
+            "31": {
+                "x":625,
+                "y":700,
+                "w":75,
+                "h":100,
+                "title":"Sågverk",
+                "type":"property",
+                "price":75000,
+                "companygroup": "7"
+            },
+            "32": {
+                "x":550,
+                "y":700,
+                "w":75,
+                "h":100,
+                "title":"Pappers- bruk",
+                "type":"property",
+                "price":50000,
+                "companygroup": "7"
+            },
+            "33": {
+                "x":475,
+                "y":700,
+                "w":75,
+                "h":100,
+                "title":"Stålverk",
+                "type":"property",
+                "price":75000,
+                "companygroup": "7"
+            },
+            "34": {
+                "x":375,
+                "y":700,
+                "w":100,
+                "h":100,
+                "title":"Bankentré",
+                "type":"bank entry"
+            },
+            "35": {
+                "x":375,
+                "y":625,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "36": {
+                "x":375,
+                "y":550,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "37": {
+                "x":375,
+                "y":475,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "38": {
+                "x":375,
+                "y":400,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "39": {
+                "x":375,
+                "y":325,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "40": {
+                "x":325,
+                "y":225,
+                "w":150,
+                "h":100,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "41": {
+                "x":175,
+                "y":225,
+                "w":150,
+                "h":100,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "42": {
+                "x":175,
+                "y":325,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "43": {
+                "x":175,
+                "y":400,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "44": {
+                "x":175,
+                "y":475,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "45": {
+                "x":175,
+                "y":550,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
+            },
+            "46": {
+                "x":175,
+                "y":625,
+                "w":100,
+                "h":75,
+                "title":"Bank",
+                "type":"bank"
             }
-            
+
         }
 }

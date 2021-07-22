@@ -15,6 +15,18 @@
     "4": {
         "name": "Kreditbolaget AB",
         "color": "#AEBFD9"
+    },
+    "5": {
+        "name": "IT-bolaget AB",
+        "color": "#B4FFFC"
+    },
+    "6": {
+        "name": "Läkemedelskoncernen",
+        "color": "#FF9693"
+    },
+    "7": {
+        "name": "Industribolaget AB",
+        "color": "#85ACFF"
     }
 
 }

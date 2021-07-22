@@ -2,26 +2,22 @@
   <head>
     <title>Finans</title>
     <link rel="stylesheet" href="static/styles.css">
+    <script src="https://kit.fontawesome.com/16a180de76.js" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
 
-    <ul id="player-portraits">
-      <!-- <li> 
-        <div class="card">
-          <div class="avatar-image"></div>
-          <div class="container">
-            <b>Noah</b>
-            <br/> Architect & Engineer
-          </div>
-        </div> 
-      </li> -->
-    </ul>
+    <!-- <ul id="player-portraits">
+    </ul> -->
+
 
     <canvas id="canvas"></canvas>
-    <input id="playerName" type="text" style="z-index:101;"/><button id="playerNameSend">Go!</button>
-    <button id="endTurn">End Turn</button>
-    <button id="takeAction">Take Action</button>
+
+    <div id="action-container">
+      <input id="playerName" type="text" style="z-index:101;"/><button id="playerNameSend">Go!</button>
+      <button id="roll">Roll<i class="fas fa-dice"></i> </button>
+      <button id="endTurn">End Turn</button>
+    </div>
   </body>
   <script src="/static/game.js"></script>
 </html>

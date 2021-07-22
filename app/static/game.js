@@ -15,7 +15,7 @@ document.getElementById("playerNameSend").addEventListener("click", function() {
   socket.emit('new player', document.getElementById("playerName").value);
 });
 
-document.getElementById("takeAction").addEventListener("click", function() {
+document.getElementById("roll").addEventListener("click", function() {
   socket.emit('action', "roll");
 });
 
@@ -122,17 +122,17 @@ function draw_player(context, players, gamestate) {
 
 function draw_player_portraits(players) {
 
-  var ul = document.getElementById("player-portraits");
+  // var ul = document.getElementById("player-portraits");
 
-  ul.innerHTML = "" // Clear portraits
+  // ul.innerHTML = "" // Clear portraits
 
-  for (var id in players) {
-      var player = players[id];
+  // for (var id in players) {
+  //     var player = players[id];
 
-      var li = document.createElement("li");
-      li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
-      ul.appendChild(li)
-  }
+  //     var li = document.createElement("li");
+  //     li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
+  //     ul.appendChild(li)
+  // }
 }
 
 function draw_tiles(context, tiles, gamestate){

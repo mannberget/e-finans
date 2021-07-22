@@ -2,6 +2,6 @@
     "playerID": "",
     "hasRolled": false,
     "hasBoughtProperty": false,
-    "hasBoughtStock":"false",
-    "hasBuilt":"false"
+    "hasBoughtStock":false,
+    "hasBuilt":false
 }
