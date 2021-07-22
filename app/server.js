@@ -32,6 +32,7 @@ var new_turn = require('./jsonfiles/new_turn.json');
 const { SocketAddress } = require('net');
 const turn_logic = require('./serverfiles/turn_logic.js');
 const action_handler = require('./serverfiles/action_handler.js');
+const { nextTurn } = require('./serverfiles/turn_logic.js');
 
 var gamestate = {};
 gamestate['gameboard'] = new_gameboard
@@ -42,12 +43,15 @@ gamestate['current_turn'] = new_turn
 io.on('connection', function(socket) {
 
   socket.emit('id', socket.id)
+  socket.emit("current players", gamestate['players']);
 
   socket.on('new player', function(name) {
 
     if (gamestate['players'][socket.id] != null || connectedPlayers >= 4){
       return
     }
+
+    
 
     console.log('new player: ' + socket.id)
 
@@ -59,8 +63,11 @@ io.on('connection', function(socket) {
       location: "1"
     };
     connectedPlayers += 1
-    turn_order.push(socket.id)
     gamestate['current_turn']['playerID'] = socket.id
+
+    turn_order = turn_logic.generateTurnOrder(gamestate);
+
+    io.sockets.emit("current players", gamestate['players']);
   });
 
   socket.on('ping', function() {
@@ -86,11 +93,17 @@ io.on('connection', function(socket) {
 
 
   socket.on('disconnect', function() {
+
+    if (gamestate['current_turn']['playerID'] == socket.id){
+      nextTurn(gamestate, turn_order)
+    }
+
     delete gamestate['players'][socket.id]
     turn_order.splice(turn_order.indexOf(socket.id), 1)
     if (connectedPlayers > 1){
       connectedPlayers -= 1
     }
+    io.sockets.emit('current players', gamestate['players'])
   });
 
 });

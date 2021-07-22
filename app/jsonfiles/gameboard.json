@@ -110,6 +110,87 @@
                 "h":100,
                 "title":"Bankfilial",
                 "type":"bank"
+            },
+            "13": {
+                "x":100,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Sport & Fritid",
+                "type":"property",
+                "price":15000,
+                "companygroup": "3"
+            },
+            "14": {
+                "x":175,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Börstips",
+                "type":"tips"
+            },
+            "15": {
+                "x":250,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Frukt & Grönt",
+                "type":"property",
+                "price":15000,
+                "companygroup": "3"
+            },
+            "16": {
+                "x":325,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Aktie- utdelning",
+                "type":"bank"
+            },
+            "17": {
+                "x":400,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Bygg",
+                "type":"build"
+            },
+            "18": {
+                "x":475,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Invest- mentbolag",
+                "type":"property",
+                "price":25000,
+                "companygroup": "4"
+            },
+            "19": {
+                "x":550,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Kredit- institut",
+                "type":"property",
+                "price":25000,
+                "companygroup": "4"
+            },
+            "20": {
+                "x":625,
+                "y":0,
+                "w":75,
+                "h":100,
+                "title":"Börstips",
+                "type":"tips"
+            },
+            "21": {
+                "x":700,
+                "y":0,
+                "w":100,
+                "h":100,
+                "title":"Fängelse",
+                "type":"prison"
             }
+            
         }
 }

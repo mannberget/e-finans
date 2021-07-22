@@ -9,7 +9,7 @@ module.exports = {
             var roll = Math.floor( Math.random() * 6 ) +1;
             console.log(player.name + " rolled: " + roll.toString());
 
-            var new_location = (start + roll) % Object.keys(gamestate['gameboard']['tiles']).length
+            var new_location = (((start + roll) - 1) % (Object.keys(gamestate['gameboard']['tiles']).length)) + 1
 
             player.location = new_location.toString()
         }

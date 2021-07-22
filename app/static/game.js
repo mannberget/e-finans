@@ -51,7 +51,10 @@ socket.on('state', function(gamestate) {
   var players = gamestate['players']
 
   draw_player(context, players, gamestate);
-  
+});
+
+socket.on('current players', function(players){
+  draw_player_portraits(players)
 });
 
 
@@ -117,6 +120,21 @@ function draw_player(context, players, gamestate) {
   }
 }
 
+function draw_player_portraits(players) {
+
+  var ul = document.getElementById("player-portraits");
+
+  ul.innerHTML = "" // Clear portraits
+
+  for (var id in players) {
+      var player = players[id];
+
+      var li = document.createElement("li");
+      li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
+      ul.appendChild(li)
+  }
+}
+
 function draw_tiles(context, tiles, gamestate){
   for (var nr in tiles) {
     var tile = tiles[nr]
@@ -147,6 +165,10 @@ function draw_tiles(context, tiles, gamestate){
     } else if (tile.type == "newspaper"){
       context.beginPath();
       context.fillStyle = "#A6D2F2";//"Moccasin";
+      context.fillRect(tile.x, tile.y, tile.w, tile.h)
+    } else if (tile.type == "prison"){
+      context.beginPath();
+      context.fillStyle = "#B3B4B6";//"Moccasin";
       context.fillRect(tile.x, tile.y, tile.w, tile.h)
     } 
 

@@ -11,6 +11,10 @@
     "3": {
         "name": "Affärsbolaget AB",
         "color": "#FFFEBE"
+    },
+    "4": {
+        "name": "Kreditbolaget AB",
+        "color": "#AEBFD9"
     }
 
 }

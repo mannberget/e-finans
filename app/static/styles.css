@@ -11,3 +11,41 @@ canvas {
     margin-bottom: 1rem;
     padding: 0;
 }
+
+ul {
+    width: 200px;
+    float: left;
+    list-style-type: none; /* Remove bullets */
+}
+
+li {
+    width: 100%;
+    height: 150px;
+}
+
+.avatar-image {
+    background-image: url('img_avatar.png');
+    width: 100%;
+    height: 90px;
+    background-position: center;
+    /* Make the background image cover the area of the <div>, and clip the excess */
+    background-size: 95%;
+    filter: sepia(100%);
+    padding: 0px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 0px;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    color: black;
+    padding: 3px;
+    text-align: left;
+}
