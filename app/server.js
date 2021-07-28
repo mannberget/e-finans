@@ -56,11 +56,10 @@ io.on('connection', function(socket) {
     console.log('new player: ' + socket.id)
 
     gamestate['players'][socket.id] = {
-      x: (80 * (connectedPlayers + 2)),
-      y: (20 * (connectedPlayers + 2)),
       name: name,
       color: colors[connectedPlayers],
-      location: "1"
+      location: "1",
+      hasCar: true
     };
     connectedPlayers += 1
     gamestate['current_turn']['playerID'] = socket.id
@@ -68,6 +67,7 @@ io.on('connection', function(socket) {
     turn_order = turn_logic.generateTurnOrder(gamestate);
 
     io.sockets.emit("current players", gamestate['players']);
+    io.sockets.emit('log', name + " joined the game");
   });
 
   socket.on('ping', function() {
@@ -75,18 +75,23 @@ io.on('connection', function(socket) {
   });
   
 
-  socket.on('end turn', function() {
-    if (gamestate['current_turn']['playerID'] == socket.id){
-      turn_logic.nextTurn(gamestate, turn_order)
-    }
-  });
-
   socket.on('action', function(action) {
 
     if (gamestate['current_turn']['playerID'] == socket.id){
       var player = gamestate['players'][socket.id] || {};
 
-      action_handler.performAction(gamestate, player, action)
+      if (action == "end turn"){
+        turn_logic.nextTurn(gamestate, turn_order)
+        io.sockets.emit('log', player.name + " ended his turn");
+        return
+      }
+
+      var msg = action_handler.performAction(gamestate, player, action);
+
+      if (msg != null){
+        io.sockets.emit('log', player.name + " " + msg);
+      }
+
     }
 
   });
@@ -113,3 +118,8 @@ io.on('connection', function(socket) {
 setInterval(function() {
   io.sockets.emit('state', gamestate);
 }, 1000 / 5);
+
+
+function clone_json(a) {
+  return JSON.parse(JSON.stringify(a));
+}

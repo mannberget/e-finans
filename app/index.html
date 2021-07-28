@@ -7,14 +7,22 @@
   </head>
   <body>
 
-    <!-- <ul id="player-portraits">
-    </ul> -->
+    <ul id="player-portraits">
+    </ul>
 
-
-    <canvas id="canvas"></canvas>
+    <div id="canvas-container">
+      <canvas id="canvas"></canvas>
+      <ul id="log">
+          <li>Game initialized</li>
+      </ul>
+    </div>
+      
 
     <div id="action-container">
-      <input id="playerName" type="text" style="z-index:101;"/><button id="playerNameSend">Go!</button>
+      <div id="playerJoin">
+        <input id="playerName" type="text" style="z-index:101;"/>
+        <button id="playerNameSend">Join</button>
+      </div>
       <button id="roll">Roll<i class="fas fa-dice"></i> </button>
       <button id="endTurn">End Turn</button>
     </div>

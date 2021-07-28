@@ -4,24 +4,39 @@ body {
     text-align: center;
 }
 
+#canvas-container {
+    /* border: 2px dotted black; */
+    margin: 0 auto;
+    width: 800px;
+    height: 800px;
+    position: relative;
+}
+
 canvas {
     background: #f8f8f8;
-    border: 2px dotted black;
+    /* border: 2px dotted black; */
     display: block;
-    margin: 0 auto;
     margin-bottom: 1rem;
     padding: 0;
 }
 
-ul {
-    width: 200px;
-    float: left;
-    list-style-type: none; /* Remove bullets */
+#log{
+    background-color:beige;
+    border: 2px dotted black;
+    color:rgb(164, 121, 65);
+    height: 200px;
+    width: 170px;
+    position: absolute;
+    padding: 0 0 0 20px;
+    top:400px;
+    left:490px;
+    text-align: left;
+    list-style-type:square; /* Remove bullets */
+    overflow: auto;
 }
 
-li {
-    width: 100%;
-    height: 150px;
+#log li{
+    margin: 5px;
 }
 
 #action-container {
@@ -32,6 +47,21 @@ li {
     padding: 5px;
     text-align: center;
     max-width: 800px;
+}
+
+#player-portraits{
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    list-style-type: none; /* Remove bullets */
+    display: inline;
+}
+
+#player-portraits li {
+    width: 175px;
+    height: 150px;
+    margin: 10px;
+    display: inline-block;
 }
 
 .avatar-image {
@@ -49,14 +79,9 @@ li {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     padding: 0px;
+    color: black;
 }
   
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.container {
-    color: black;
-    padding: 3px;
-    text-align: left;
 }

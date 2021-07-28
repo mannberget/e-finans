@@ -1,0 +1,5 @@
+{
+    name: name,
+    color: colors[connectedPlayers],
+    location: "1"
+}

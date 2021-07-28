@@ -20,7 +20,7 @@ document.getElementById("roll").addEventListener("click", function() {
 });
 
 document.getElementById("endTurn").addEventListener("click", function() {
-  socket.emit('end turn');
+  socket.emit('action', "end turn");
 });
 
 
@@ -55,6 +55,22 @@ socket.on('state', function(gamestate) {
 
 socket.on('current players', function(players){
   draw_player_portraits(players)
+
+  document.getElementById('playerJoin').style.display = 'block';
+
+  for (var id in players) {
+    if (myID == id){
+      document.getElementById('playerJoin').style.display = 'none';
+    }
+  }
+
+});
+
+socket.on('log', function(message){
+  var li = document.createElement("li");
+  li.innerHTML = message
+  document.getElementById('log').appendChild(li)
+  li.scrollIntoView()
 });
 
 
@@ -122,17 +138,17 @@ function draw_player(context, players, gamestate) {
 
 function draw_player_portraits(players) {
 
-  // var ul = document.getElementById("player-portraits");
+  var ul = document.getElementById("player-portraits");
 
-  // ul.innerHTML = "" // Clear portraits
+  ul.innerHTML = "" // Clear portraits
 
-  // for (var id in players) {
-  //     var player = players[id];
+  for (var id in players) {
+      var player = players[id];
 
-  //     var li = document.createElement("li");
-  //     li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
-  //     ul.appendChild(li)
-  // }
+      var li = document.createElement("li");
+      li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
+      ul.appendChild(li)
+  }
 }
 
 function draw_tiles(context, tiles, gamestate){
