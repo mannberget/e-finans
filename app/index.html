@@ -15,14 +15,21 @@
       <ul id="log">
           <li>Game initialized</li>
       </ul>
-    </div>
+      <div id="startupScreen">
+        Current players:
+        <ul id="player-join-list">
+        </ul>
+        <div id="playerJoin">
+          Enter Name:
+          <input id="playerName" type="text" style="width:100%"/>
+          <button id="playerNameSend">Join</button>
+        </div>
+        <button id="startGame">Start Game</button>
+      </div>
       
+    </div>      
 
     <div id="action-container">
-      <div id="playerJoin">
-        <input id="playerName" type="text" style="z-index:101;"/>
-        <button id="playerNameSend">Join</button>
-      </div>
       <button id="roll">Roll<i class="fas fa-dice"></i> </button>
       <button id="endTurn">End Turn</button>
     </div>

@@ -19,6 +19,10 @@ document.getElementById("roll").addEventListener("click", function() {
   socket.emit('action', "roll");
 });
 
+document.getElementById("startGame").addEventListener("click", function() {
+  socket.emit('start game')
+});
+
 document.getElementById("endTurn").addEventListener("click", function() {
   socket.emit('action', "end turn");
 });
@@ -44,17 +48,28 @@ socket.on('state', function(gamestate) {
 
   context.clearRect(0, 0, 800, 800);
 
-  var tiles = gamestate['gameboard']['tiles']
+  if (gamestate['active']){
+    var tiles = gamestate['gameboard']['tiles']
 
-  draw_tiles(context, tiles, gamestate)
+    draw_tiles(context, tiles, gamestate)
 
-  var players = gamestate['players']
+    var players = gamestate['players']
 
-  draw_player(context, players, gamestate);
+    draw_player(context, players, gamestate);
+  }
+
+
 });
 
-socket.on('current players', function(players){
-  draw_player_portraits(players)
+socket.on('current players', function(gamestate){
+  var players = gamestate['players']
+
+  if (gamestate['active']){
+    document.getElementById('startupScreen').style.display = 'none';
+    draw_player_portraits(gamestate)
+  }else{
+    draw_player_startup(players)
+  }
 
   document.getElementById('playerJoin').style.display = 'block';
 
@@ -136,17 +151,38 @@ function draw_player(context, players, gamestate) {
   }
 }
 
-function draw_player_portraits(players) {
+function draw_player_portraits(gamestate) {
+
+  var ids = gamestate['turn_order'];
+
+  console.log("players: " + ids)
+
+  var players = gamestate['players']
 
   var ul = document.getElementById("player-portraits");
 
   ul.innerHTML = "" // Clear portraits
 
+  for (var id in ids) {
+      var player = players[gamestate['turn_order'][id]];
+
+      var li = document.createElement("li");
+      li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
+      ul.appendChild(li)
+  }
+}
+
+function draw_player_startup(players) {
+
+  var ul = document.getElementById("player-join-list");
+
+  ul.innerHTML = "" // Clear list
+
   for (var id in players) {
       var player = players[id];
 
       var li = document.createElement("li");
-      li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
+      li.innerHTML = player.name
       ul.appendChild(li)
   }
 }

@@ -35,6 +35,26 @@ canvas {
     overflow: auto;
 }
 
+#startupScreen{
+    background-color:beige;
+    border: 2px dotted black;
+    color:rgb(164, 121, 65);
+    height: 200px;
+    width: 150px;
+    position: absolute;
+    padding: 0 0 0 0px;
+    top:300px;
+    left:325px;
+
+}
+#player-join-list{
+    /* list-style-type:bullet; Remove bullets */
+    overflow: auto;
+    text-align: left;
+}
+
+
+
 #log li{
     margin: 5px;
 }

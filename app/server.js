@@ -35,10 +35,12 @@ const action_handler = require('./serverfiles/action_handler.js');
 const { nextTurn } = require('./serverfiles/turn_logic.js');
 
 var gamestate = {};
-gamestate['gameboard'] = new_gameboard
-gamestate['companygroups'] = companygroups
+gamestate['gameboard'] = new_gameboard;
+gamestate['companygroups'] = companygroups;
 gamestate['players'] = {};
-gamestate['current_turn'] = new_turn
+gamestate['current_turn'] = new_turn;
+gamestate['active'] = false;
+gamestate['turn_order'] = {}
 
 io.on('connection', function(socket) {
 
@@ -47,7 +49,10 @@ io.on('connection', function(socket) {
 
   socket.on('new player', function(name) {
 
-    if (gamestate['players'][socket.id] != null || connectedPlayers >= 4){
+    // Stop if the connection already has player,
+    // the amount of players is >= 4 or
+    // the game is already running.
+    if (gamestate['players'][socket.id] != null || connectedPlayers >= 4 || gamestate['active']){
       return
     }
 
@@ -64,9 +69,7 @@ io.on('connection', function(socket) {
     connectedPlayers += 1
     gamestate['current_turn']['playerID'] = socket.id
 
-    turn_order = turn_logic.generateTurnOrder(gamestate);
-
-    io.sockets.emit("current players", gamestate['players']);
+    io.sockets.emit("current players", gamestate);
     io.sockets.emit('log', name + " joined the game");
   });
 
@@ -96,10 +99,25 @@ io.on('connection', function(socket) {
 
   });
 
+  socket.on('start game', function() {
+
+    if (connectedPlayers >= 2){
+      gamestate['active'] = true
+      io.sockets.emit('log', "Game is started");
+      turn_order = turn_logic.generateTurnOrder(gamestate);
+      gamestate['turn_order'] = turn_order
+      io.sockets.emit('current players', gamestate)
+
+      console.log(turn_order)
+      console.log(gamestate['turn_order'])
+    }
+
+  });
+
 
   socket.on('disconnect', function() {
 
-    if (gamestate['current_turn']['playerID'] == socket.id){
+    if (gamestate['active'] && gamestate['current_turn']['playerID'] == socket.id){
       nextTurn(gamestate, turn_order)
     }
 
@@ -108,7 +126,7 @@ io.on('connection', function(socket) {
     if (connectedPlayers > 1){
       connectedPlayers -= 1
     }
-    io.sockets.emit('current players', gamestate['players'])
+    io.sockets.emit('current players', gamestate)
   });
 
 });
