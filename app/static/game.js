@@ -33,6 +33,10 @@ document.getElementById("hidePlayers").addEventListener("click", function() {
   hidePlayers = !hidePlayers;
 });
 
+document.getElementById("buyProperty").addEventListener("click", function() {
+  socket.emit('action', "buy", document.getElementById("properties").value);
+});
+
 
 
 setInterval(function() {
@@ -73,6 +77,7 @@ socket.on('current players', function(gamestate){
   if (gamestate['active']){
     document.getElementById('startupScreen').style.display = 'none';
     draw_player_portraits(gamestate)
+    populate_property_selector(gamestate)
   }else{
     draw_player_startup(players)
   }
@@ -83,26 +88,7 @@ socket.on('current players', function(gamestate){
     if (myID == id){
       document.getElementById('playerJoin').style.display = 'none';
     }
-  }
-
-
-  try{
-    document.getElementById('properties').innerHTML = "";
-    var tiles = gamestate['gameboard']['tiles'];
-    for (var nr in tiles){
-      var tile = tiles[nr];
-
-      if (tile.type == "property" && tile.owner == ""){
-        var option = document.createElement('option');
-        option.value = nr;
-        option.innerHTML = tile.title;
-        document.getElementById('properties').appendChild(option)
-      }
-    }
-  } catch (error){
-
-  }
-
+  } 
 });
 
 socket.on('log', function(message){
@@ -136,6 +122,20 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 
+function populate_property_selector(gamestate){
+  document.getElementById('properties').innerHTML = "";
+  var tiles = gamestate['gameboard']['tiles'];
+  for (var nr in tiles){
+    var tile = tiles[nr];
+
+    if (tile.type == "property" && tile.owner == ""){
+      var option = document.createElement('option');
+      option.value = nr;
+      option.innerHTML = tile.title.replace('- ', '');
+      document.getElementById('properties').appendChild(option)
+    }
+  }
+}
 
 function draw_player(context, players, gamestate) {
 
@@ -206,7 +206,7 @@ function draw_player_portraits(gamestate) {
       var player = players[gamestate['turn_order'][id]];
 
       var li = document.createElement("li");
-      li.innerHTML = '<div class="card" style="border: 5px solid ' + player.color + ';"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> </div> </div>'
+      li.innerHTML = '<div class="card" style="border: 5px solid ' + player.color + ';"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/>Capital: ' + player.capital.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + '</div> </div>'
       ul.appendChild(li)
   }
 }
