@@ -2,6 +2,8 @@ var socket = io();
 
 var myID;
 
+var hidePlayers = false;
+
 var action = {
   name: "unknown",
   up: false,
@@ -25,6 +27,10 @@ document.getElementById("startGame").addEventListener("click", function() {
 
 document.getElementById("endTurn").addEventListener("click", function() {
   socket.emit('action', "end turn");
+});
+
+document.getElementById("hidePlayers").addEventListener("click", function() {
+  hidePlayers = !hidePlayers;
 });
 
 
@@ -114,39 +120,54 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 
 
 function draw_player(context, players, gamestate) {
-  for (var id in players) {
-      var player = players[id];
+
+
+  var ids = gamestate['turn_order']
+
+  for (var id in ids) {
+      var player = players[gamestate['turn_order'][id]];
 
       var location = player.location
       var tile = gamestate['gameboard']['tiles'][location]
 
-      var player_x = tile.x + tile.w/2
-      var player_y = tile.y + (2*tile.h/3)
+      var player_x = tile.x + tile.w/2 + id*5
+      var player_y = tile.y + (2*tile.h/3) + id*5;
 
-      context.fillStyle = player.color;
-      context.beginPath();
+      
 
-      context.arc(player_x, player_y, 20, 0, 2 * Math.PI);
-      context.fill();
-  
-      context.lineWidth = 1;
-      context.fillStyle = 'Black';
-      context.font = "14px Arial"
-      context.textAlign = "center"
-      context.fillText(player.name, player_x, player_y+5);
-  
-      if (gamestate['current_turn']['playerID'] == id){
-        context.lineWidth = 3;
-        context.strokeStyle = 'Green';
+      if (hidePlayers){
+        context.strokeStyle = player.color;
+        context.beginPath();
+        context.arc(player_x, player_y, 20, 0, 2 * Math.PI);
+        context.lineWidth = 1;
         context.stroke();
-      }
-  
-      if (myID == id){
+
+      } else {
+        context.fillStyle = player.color;
+        context.beginPath();
+
+        context.arc(player_x, player_y, 20, 0, 2 * Math.PI);
+        context.fill();
+    
         context.lineWidth = 1;
         context.fillStyle = 'Black';
         context.font = "14px Arial"
         context.textAlign = "center"
-        context.fillText("You", player_x, player_y - 20);
+        context.fillText(player.name, player_x, player_y+5);
+    
+        if (gamestate['current_turn']['playerID'] == gamestate['turn_order'][id]){
+          context.lineWidth = 3;
+          context.strokeStyle = 'Green';
+          context.stroke();
+        }
+    
+        if (myID == id){
+          context.lineWidth = 1;
+          context.fillStyle = 'Black';
+          context.font = "14px Arial"
+          context.textAlign = "center"
+          context.fillText("You", player_x, player_y - 20);
+        }
       }
   }
 }
@@ -167,7 +188,7 @@ function draw_player_portraits(gamestate) {
       var player = players[gamestate['turn_order'][id]];
 
       var li = document.createElement("li");
-      li.innerHTML = '<div class="card"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> <br/> Architect & Engineer </div> </div>'
+      li.innerHTML = '<div class="card" style="border: 5px solid ' + player.color + ';"> <div class="avatar-image"></div> <div class="container"> <b>' + player.name + '</b> </div> </div>'
       ul.appendChild(li)
   }
 }

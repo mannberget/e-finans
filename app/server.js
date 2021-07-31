@@ -135,7 +135,7 @@ io.on('connection', function(socket) {
 
 setInterval(function() {
   io.sockets.emit('state', gamestate);
-}, 1000 / 5);
+}, 1000/2);
 
 
 function clone_json(a) {
