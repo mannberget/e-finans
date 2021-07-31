@@ -85,6 +85,24 @@ socket.on('current players', function(gamestate){
     }
   }
 
+
+  try{
+    document.getElementById('properties').innerHTML = "";
+    var tiles = gamestate['gameboard']['tiles'];
+    for (var nr in tiles){
+      var tile = tiles[nr];
+
+      if (tile.type == "property" && tile.owner == ""){
+        var option = document.createElement('option');
+        option.value = nr;
+        option.innerHTML = tile.title;
+        document.getElementById('properties').appendChild(option)
+      }
+    }
+  } catch (error){
+
+  }
+
 });
 
 socket.on('log', function(message){
@@ -226,29 +244,38 @@ function draw_tiles(context, tiles, gamestate){
       var price_string = tile.price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
       context.fillText(price_string, tile.x + tile.w/2, tile.y + (5*tile.h/6));      
 
+      if (tile.owner != ""){
+        try {
+          context.lineWidth = 4;
+          context.beginPath();
+          context.strokeStyle = gamestate['players'][tile.owner]['color'];
+          context.strokeRect(tile.x+2, tile.y+2, tile.w-4, tile.h-4)
+        } catch (error) {
+        }
+      }
+
     } else if (tile.type == "bank"){
       context.beginPath();
-      context.fillStyle = "#F9F3D8";//"Moccasin";
+      context.fillStyle = "#F9F3D8";
       context.fillRect(tile.x, tile.y, tile.w, tile.h)
 
     } else if (tile.type == "tips"){
       context.beginPath();
-      context.fillStyle = "#F8BF95";//"Moccasin";
+      context.fillStyle = "#F8BF95";
       context.fillRect(tile.x, tile.y, tile.w, tile.h)
     } else if (tile.type == "newspaper"){
       context.beginPath();
-      context.fillStyle = "#A6D2F2";//"Moccasin";
+      context.fillStyle = "#A6D2F2";
       context.fillRect(tile.x, tile.y, tile.w, tile.h)
     } else if (tile.type == "prison"){
       context.beginPath();
-      context.fillStyle = "#B3B4B6";//"Moccasin";
+      context.fillStyle = "#B3B4B6";
       context.fillRect(tile.x, tile.y, tile.w, tile.h)
-    } 
+    }
 
-    // Draw border
     context.lineWidth = 1;
     context.beginPath();
-    context.strokeStyle = "black";
+    context.strokeStyle = "Black";
     context.strokeRect(tile.x, tile.y, tile.w, tile.h)
 
 

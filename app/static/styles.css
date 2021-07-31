@@ -62,6 +62,7 @@ canvas {
 #action-container {
     background: #f8f8f8;
     border: 2px solid black;
+    color:black;
     display: block;
     margin: 5px auto;
     padding: 5px;
