@@ -82,23 +82,22 @@ io.on('connection', function(socket) {
 
   socket.on('action', function(action, args) {
 
-    if (gamestate['current_turn']['playerID'] == socket.id){
-      var player = gamestate['players'][socket.id] || {};
+    var own_turn = gamestate['current_turn']['playerID'] == socket.id;
+    var player = gamestate['players'][socket.id] || {};
 
-      if (action == "end turn" && gamestate['current_turn']['hasRolled']){
-        turn_logic.nextTurn(gamestate, turn_order)
-        io.sockets.emit('log', player.name + " ended his turn");
-        return
-      }
-
-      var msg = action_handler.performAction(gamestate, player, action, args);
-
-      if (msg != null){
-        io.sockets.emit('log', player.name + " " + msg);
-      }
-
-      io.sockets.emit('current players', gamestate)
+    if (action == "end turn" && gamestate['current_turn']['hasRolled']){
+      turn_logic.nextTurn(gamestate, turn_order)
+      io.sockets.emit('log', player.name + " ended his turn");
+      return
     }
+
+    var msg = action_handler.performAction(gamestate, player, own_turn, socket.id, action, args);
+
+    if (msg != null){
+      io.sockets.emit('log', player.name + " " + msg);
+    }
+
+    io.sockets.emit('current players', gamestate)
 
   });
 

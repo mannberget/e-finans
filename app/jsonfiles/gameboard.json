@@ -2,7 +2,6 @@
     "tiles":
         {
             "1": {
-                "owner":"",
                 "x":175,
                 "y":700,
                 "w":100,
@@ -11,7 +10,6 @@
                 "type":"bank exit"
             },
             "2": {
-                "owner":"",
                 "x":100,
                 "y":700,
                 "w":75,
@@ -20,7 +18,6 @@
                 "type":"special"
             },
             "3": {
-                "owner":"",
                 "x":0,
                 "y":700,
                 "w":100,
@@ -37,9 +34,14 @@
                 "title":"Byggföretag",
                 "built":false,
                 "build_price":10000,
-                "rent_unbuilt":2500,
+                "rent":2500,
                 "rent_built":25000,
                 "type":"property",
+                "loan":10000,
+                "loan_built":20000,
+                "sell":0,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":10000,
                 "companygroup": "1"
 
@@ -53,9 +55,14 @@
                 "title":"Måleri",
                 "built":false,
                 "build_price":10000,
-                "rent_unbuilt":2500,
+                "rent":2500,
                 "rent_built":25000,
                 "type":"property",
+                "loan":10000,
+                "loan_built":20000,
+                "sell":0,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":10000,
                 "companygroup": "1"
             },
@@ -68,14 +75,18 @@
                 "title":"Elfirma",
                 "built":false,
                 "build_price":15000,
-                "rent_unbuilt":5000,
+                "rent":5000,
                 "rent_built":30000,
                 "type":"property",
+                "loan":15000,
+                "loan_built":25000,
+                "sell":0,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":15000,
                 "companygroup": "1"
             },
             "7": {
-                "owner":"",
                 "x":0,
                 "y":400,
                 "w":100,
@@ -92,9 +103,14 @@
                 "title":"Parkeringshus",
                 "built":false,
                 "build_price":0,
-                "rent_unbuilt":0,
+                "rent":0,
                 "rent_built":0,
                 "type":"property",
+                "loan":0,
+                "loan_built":0,
+                "sell":25000,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":40000
             },
             "9": {
@@ -106,9 +122,14 @@
                 "title":"Hotell",
                 "built":false,
                 "build_price":30000,
-                "rent_unbuilt":0,
+                "rent":0,
                 "rent_built":50000,
                 "type":"property",
+                "loan":20000,
+                "loan_built":40000,
+                "sell":15000,
+                "sell_built":45000,
+                "mortgaged":false,
                 "price":20000,
                 "companygroup": "2"
             },
@@ -121,9 +142,14 @@
                 "title":"Bilverkstad",
                 "built":false,
                 "build_price":20000,
-                "rent_unbuilt":5000,
+                "rent":5000,
                 "rent_built":40000,
                 "type":"property",
+                "loan":15000,
+                "loan_built":35000,
+                "sell":15000,
+                "sell_built":40000,
+                "mortgaged":false,
                 "price":20000,
                 "companygroup": "2"
             },
@@ -136,14 +162,18 @@
                 "title":"Möbler & Inredning",
                 "built":false,
                 "build_price":40000,
-                "rent_unbuilt":5000,
+                "rent":5000,
                 "rent_built":40000,
                 "type":"property",
+                "loan":20000,
+                "loan_built":0,
+                "sell":0,
+                "sell_built":60000,
+                "mortgaged":false,
                 "price":20000,
                 "companygroup": "3"
             },
             "12": {
-                "owner":"",
                 "x":0,
                 "y":0,
                 "w":100,
@@ -160,14 +190,18 @@
                 "title":"Sport & Fritid",
                 "built":false,
                 "build_price":15000,
-                "rent_unbuilt":5000,
+                "rent":5000,
                 "rent_built":25000,
                 "type":"property",
+                "loan":15000,
+                "loan_built":0,
+                "sell":0,
+                "sell_built":30000,
+                "mortgaged":false,
                 "price":15000,
                 "companygroup": "3"
             },
             "14": {
-                "owner":"",
                 "x":175,
                 "y":0,
                 "w":75,
@@ -184,14 +218,18 @@
                 "title":"Frukt & Grönt",
                 "built":false,
                 "build_price":20000,
-                "rent_unbuilt":5000,
+                "rent":5000,
                 "rent_built":40000,
                 "type":"property",
+                "loan":20000,
+                "loan_built":0,
+                "sell":0,
+                "sell_built":40000,
+                "mortgaged":false,
                 "price":20000,
                 "companygroup": "3"
             },
             "16": {
-                "owner":"",
                 "x":325,
                 "y":0,
                 "w":75,
@@ -200,7 +238,6 @@
                 "type":"bank"
             },
             "17": {
-                "owner":"",
                 "x":400,
                 "y":0,
                 "w":75,
@@ -217,9 +254,14 @@
                 "title":"Invest- mentbolag",
                 "built":false,
                 "build_price":25000,
-                "rent_unbuilt":0,
+                "rent":0,
                 "rent_built":50000,
                 "type":"property",
+                "loan":0,
+                "loan_built":50000,
+                "sell":25000,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":25000,
                 "companygroup": "4"
             },
@@ -232,14 +274,18 @@
                 "title":"Kredit- institut",
                 "built":false,
                 "build_price":35000,
-                "rent_unbuilt":0,
+                "rent":0,
                 "rent_built":60000,
                 "type":"property",
+                "loan":0,
+                "loan_built":60000,
+                "sell":25000,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":25000,
                 "companygroup": "4"
             },
             "20": {
-                "owner":"",
                 "x":625,
                 "y":0,
                 "w":75,
@@ -248,7 +294,6 @@
                 "type":"tips"
             },
             "21": {
-                "owner":"",
                 "x":700,
                 "y":0,
                 "w":100,
@@ -265,9 +310,14 @@
                 "title":"Telecom",
                 "built":false,
                 "build_price":25000,
-                "rent_unbuilt":10000,
+                "rent":10000,
                 "rent_built":50000,
                 "type":"property",
+                "loan":25000,
+                "loan_built":50000,
+                "sell":0,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":25000,
                 "companygroup": "5"
             },
@@ -280,9 +330,14 @@
                 "title":"IT-support",
                 "built":false,
                 "build_price":25000,
-                "rent_unbuilt":10000,
+                "rent":10000,
                 "rent_built":50000,
                 "type":"property",
+                "loan":25000,
+                "loan_built":50000,
+                "sell":0,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":25000,
                 "companygroup": "5"
             },
@@ -295,14 +350,18 @@
                 "title":"Industri- design",
                 "built":false,
                 "build_price":30000,
-                "rent_unbuilt":15000,
+                "rent":15000,
                 "rent_built":60000,
                 "type":"property",
+                "loan":30000,
+                "loan_built":60000,
+                "sell":0,
+                "sell_built":0,
+                "mortgaged":false,
                 "price":30000,
                 "companygroup": "5"
             },
             "25": {
-                "owner":"",
                 "x":700,
                 "y":325,
                 "w":100,
@@ -319,9 +378,14 @@
                 "title":"Hållbar Energi",
                 "built":false,
                 "build_price":40000,
-                "rent_unbuilt":15000,
+                "rent":15000,
                 "rent_built":75000,
                 "type":"property",
+                "loan":40000,
+                "loan_built":40000,
+                "sell":0,
+                "sell_built":75000,
+                "mortgaged":false,
                 "price":40000,
                 "companygroup": "6"
             },
@@ -334,14 +398,18 @@
                 "title":"Läkemedels- industri",
                 "built":false,
                 "build_price":30000,
-                "rent_unbuilt":10000,
+                "rent":10000,
                 "rent_built":60000,
                 "type":"property",
+                "loan":30000,
+                "loan_built":30000,
+                "sell":0,
+                "sell_built":50000,
+                "mortgaged":false,
                 "price":30000,
                 "companygroup": "6"
             },
             "28": {
-                "owner":"",
                 "x":700,
                 "y":550,
                 "w":100,
@@ -358,14 +426,18 @@
                 "title":"Bioteknik",
                 "built":false,
                 "build_price":40000,
-                "rent_unbuilt":15000,
+                "rent":15000,
                 "rent_built":75000,
                 "type":"property",
+                "loan":40000,
+                "loan_built":40000,
+                "sell":0,
+                "sell_built":75000,
+                "mortgaged":false,
                 "price":40000,
                 "companygroup": "6"
             },
             "30": {
-                "owner":"",
                 "x":700,
                 "y":700,
                 "w":100,
@@ -382,9 +454,14 @@
                 "title":"Sågverk",
                 "built":false,
                 "build_price":200000,
-                "rent_unbuilt":20000,
+                "rent":20000,
                 "rent_built":200000,
                 "type":"property",
+                "loan":0,
+                "loan_built":0,
+                "sell":50000,
+                "sell_built":150000,
+                "mortgaged":false,
                 "price":75000,
                 "companygroup": "7"
             },
@@ -397,9 +474,14 @@
                 "title":"Pappers- bruk",
                 "built":false,
                 "build_price":100000,
-                "rent_unbuilt":20000,
+                "rent":20000,
                 "rent_built":200000,
                 "type":"property",
+                "loan":0,
+                "loan_built":0,
+                "sell":50000,
+                "sell_built":100000,
+                "mortgaged":false,
                 "price":50000,
                 "companygroup": "7"
             },
@@ -412,14 +494,18 @@
                 "title":"Stålverk",
                 "built":false,
                 "build_price":150000,
-                "rent_unbuilt":30000,
+                "rent":30000,
                 "rent_built":300000,
                 "type":"property",
+                "loan":0,
+                "loan_built":0,
+                "sell":75000,
+                "sell_built":150000,
+                "mortgaged":false,
                 "price":75000,
                 "companygroup": "7"
             },
             "34": {
-                "owner":"",
                 "x":375,
                 "y":700,
                 "w":100,
@@ -428,7 +514,6 @@
                 "type":"bank entry"
             },
             "35": {
-                "owner":"",
                 "x":375,
                 "y":625,
                 "w":100,
@@ -437,7 +522,6 @@
                 "type":"bank"
             },
             "36": {
-                "owner":"",
                 "x":375,
                 "y":550,
                 "w":100,
@@ -446,7 +530,6 @@
                 "type":"bank"
             },
             "37": {
-                "owner":"",
                 "x":375,
                 "y":475,
                 "w":100,
@@ -455,7 +538,6 @@
                 "type":"bank"
             },
             "38": {
-                "owner":"",
                 "x":375,
                 "y":400,
                 "w":100,
@@ -464,7 +546,6 @@
                 "type":"bank"
             },
             "39": {
-                "owner":"",
                 "x":375,
                 "y":325,
                 "w":100,
@@ -473,16 +554,14 @@
                 "type":"bank"
             },
             "40": {
-                "owner":"",
                 "x":325,
                 "y":225,
                 "w":150,
                 "h":100,
-                "title":"Bank",
+                "title":"Bygg",
                 "type":"bank"
             },
             "41": {
-                "owner":"",
                 "x":175,
                 "y":225,
                 "w":150,
@@ -491,7 +570,6 @@
                 "type":"bank"
             },
             "42": {
-                "owner":"",
                 "x":175,
                 "y":325,
                 "w":100,
@@ -500,7 +578,6 @@
                 "type":"bank"
             },
             "43": {
-                "owner":"",
                 "x":175,
                 "y":400,
                 "w":100,
@@ -509,7 +586,6 @@
                 "type":"bank"
             },
             "44": {
-                "owner":"",
                 "x":175,
                 "y":475,
                 "w":100,
@@ -518,7 +594,6 @@
                 "type":"bank"
             },
             "45": {
-                "owner":"",
                 "x":175,
                 "y":550,
                 "w":100,
@@ -527,7 +602,6 @@
                 "type":"bank"
             },
             "46": {
-                "owner":"",
                 "x":175,
                 "y":625,
                 "w":100,

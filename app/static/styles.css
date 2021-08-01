@@ -1,8 +1,19 @@
 body {
     background: #f5f4f4;
     color: #ffffff;
-    text-align: center;
+    max-width: 1350px;
+    margin: 20px auto;
 }
+
+#left {
+    float: left;
+    width:800px;
+}
+
+#right{
+    margin-left: 800px;
+}
+
 
 #canvas-container {
     /* border: 2px dotted black; */
@@ -12,13 +23,18 @@ body {
     position: relative;
 }
 
+.control-segment{
+    padding:8px;
+}
+
 canvas {
     background: #f8f8f8;
     /* border: 2px dotted black; */
-    display: block;
     margin-bottom: 1rem;
     padding: 0;
 }
+
+
 
 #log{
     background-color:beige;
@@ -61,34 +77,62 @@ canvas {
 
 #action-container {
     background: #f8f8f8;
-    border: 2px solid black;
+    border: 2px dotted black;
     color:black;
     display: block;
-    margin: 5px auto;
+    margin: 0 auto;
     padding: 5px;
-    text-align: center;
-    max-width: 800px;
+    text-align: left;
+    width: 380px;
 }
 
 #player-portraits{
-    text-align: center;
-    margin: 0 auto;
-    width: 200px;
     list-style-type: none; /* Remove bullets */
-    display: inline;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
 }
 
 #player-portraits li {
-    width: 175px;
-    height: 150px;
-    margin: 10px;
+    width: 125px;
+    height: 100px;
+    margin: 0px 5px;
     display: inline-block;
+}
+
+.control-segment{
+    border-bottom: 1px dotted black;
+}
+
+#property-display{
+    height:200px;
+    width:180px;
+    padding:10px;
+    margin: 8px 0px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#property-company-group{
+    padding:5px;
+    border: 1px solid black;
+}
+#property-name{
+    margin:5px 0 10px 0;
+}
+#property-information{
+    text-align:left;
+}
+
+#property-information div{
+    margin-bottom: 8px;
 }
 
 .avatar-image {
     background-image: url('img_avatar.png');
     width: 100%;
-    height: 90px;
+    height: 50px;
     background-position: center;
     /* Make the background image cover the area of the <div>, and clip the excess */
     background-size: 95%;

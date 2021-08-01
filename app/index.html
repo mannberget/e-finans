@@ -7,37 +7,86 @@
   </head>
   <body>
 
-    <ul id="player-portraits">
-    </ul>
+    
 
-    <div id="canvas-container">
-      <canvas id="canvas"></canvas>
-      <ul id="log">
-          <li>Game initialized</li>
-      </ul>
-      <div id="startupScreen">
-        Current players:
-        <ul id="player-join-list">
+    <div id="left">
+      <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+        <ul id="log">
+            <li>Game initialized</li>
         </ul>
-        <div id="playerJoin">
-          Enter Name:
-          <input id="playerName" type="text" style="width:100%"/>
-          <button id="playerNameSend">Join</button>
+        <div id="startupScreen">
+          Current players:
+          <ul id="player-join-list">
+          </ul>
+          <div id="playerJoin">
+            Enter Name:
+            <input id="playerName" type="text" style="width:100%"/>
+            <button id="playerNameSend">Join</button>
+          </div>
+          <button id="startGame">Start Game</button>
         </div>
-        <button id="startGame">Start Game</button>
       </div>
-      
     </div>      
 
-    <div id="action-container">
-      <button id="roll">Roll<i class="fas fa-dice"></i> </button>
-      <button id="endTurn">End Turn</button>
-      <button id="hidePlayers">Hide Players</button>
-      <label for="properties">Select property:</label>
-      <select name="properties" id="properties">
-      </select>
-      <button id="buyProperty">Buy</button>
+    <div id="right">
+      <ul id="player-portraits">
+        <li style="visibility: hidden;"></li>
+      </ul>
+      <div id="action-container">
+        
+        <div id="turn-control" class="control-segment">
+          <button id="roll">Gå <i class="fas fa-dice"></i> </button>
+          <button id="endTurn">Avsluta tur</button>
+          <button id="hidePlayers">Dölj spelare</button>
+        </div>
+        
+        <div id="property-control" class="control-segment">
+          <label for="properties">Välj tomt:</label>
+          <select name="properties" id="properties"></select>
+          
+          <br/>
+          <div class="card" id="property-display" style="visibility:hidden;">
+            <div id="property-company-group" style="background-color: #FFFFFF;"></div>
+            <b><div id="property-name"></div></b>
+            <div id="property-information">
+              <small>
+              <div>
+                Tomt kostar: <span id="property-cost"></span> <br/>
+                Byggnad kostar: <span id="property-build-cost"></span> <br/>
+              </div>
+              
+              <div>
+              Hyra obebyggd: <span id="property-rent"></span> <br/>
+              Hyra bebyggd: <span id="property-rent-built"></span> <br/>
+              </div>
+
+              <div>
+              Belåning obebyggd: <span id="property-loan"></span> <br/>
+              Belåning bebyggd: <span id="property-loan-built"></span> <br/>
+              </div>
+
+              <div>
+              Återköp obebyggd: <span id="property-sell"></span> <br/>
+              Återköp bebyggd: <span id="property-sell-built"></span> <br/>
+              </div>
+              </small>
+            </div>
+          </div>
+          <button id="buyProperty">Köp</button>
+          <button id="sellProperty">Sälj</button>
+          <button id="loanProperty">Belåna</button>
+          <button id="unLoanProperty">Lös upp</button>
+          <button id="buildProperty">Bygg <i class="fas fa-home"></i></button>
+        </div>
+
+        <div id="misc" class="control-segment">
+          <button>Gå i konkurs <i class="fas fa-book-dead"></i></button>
+        </div>
+
+      </div>
     </div>
+    
   </body>
   <script src="/static/game.js"></script>
 </html>
