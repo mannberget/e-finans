@@ -105,7 +105,7 @@ io.on('connection', function(socket) {
 
     if (connectedPlayers >= 2){
       gamestate['active'] = true
-      io.sockets.emit('log', "Game is started");
+      io.sockets.emit('log', "Spelet börjar");
       turn_order = turn_logic.generateTurnOrder(gamestate);
       gamestate['turn_order'] = turn_order
       io.sockets.emit('current players', gamestate)

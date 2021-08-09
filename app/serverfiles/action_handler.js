@@ -9,11 +9,18 @@ module.exports = {
             
                 var start = parseInt(player.location);
 
-                var roll = Math.floor( Math.random() * 6 ) +1;
+                var roll1 = Math.floor( Math.random() * 6 ) +1;
+                
+                var roll = 0;
+
+                var twoDice = (start < 34 && player.hasCar)
 
                 // Add another dice if player has a car and is not in bank
-                if (start < 34 && player.hasCar){
-                    roll += Math.floor( Math.random() * 6 ) +1;
+                if (twoDice){
+                    var roll2 = Math.floor( Math.random() * 6 ) +1;
+                    var roll = roll1 + roll2;
+                } else {
+                    var roll = roll1;
                 }
 
                 console.log(player.name + " rolled: " + roll.toString());
@@ -32,7 +39,11 @@ module.exports = {
 
                 player.location = new_location.toString()
                 
-                return "gick fram " + roll.toString();
+                if (twoDice){
+                    return "gick fram " + roll.toString() + " (" + roll1 + "+" + roll2 + ")";
+                } else {
+                    return "gick fram " + roll.toString()
+                }
 
             }
         } else if (action == "buyProperty"){
@@ -135,6 +146,23 @@ module.exports = {
                 
                 return "byggde på " + property.title;
             }
+                
+        } else if (action == "bankDeposit"){
+            var amount = parseInt(args);
+            if (isNaN(amount)) { return; }
+
+            if (player.capital >= amount){
+                player.capital -= amount
+                return "satte in " + amount + " i banken"
+            }
+
+                
+        } else if (action == "bankWithdraw"){
+            var amount = parseInt(args);
+            if (isNaN(amount)) { return; }
+
+            player.capital += amount
+            return "tog ut " + amount + " från banken"
                 
         } else {
             console.log("Undefined action: " + action)

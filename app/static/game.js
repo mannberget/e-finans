@@ -55,6 +55,14 @@ document.getElementById("buildProperty").addEventListener("click", function() {
   socket.emit('action', "buildProperty", document.getElementById("properties").value);
 });
 
+document.getElementById("bankDeposit").addEventListener("click", function() {
+  socket.emit('action', "bankDeposit", document.getElementById("bank-control-amount").value);
+});
+
+document.getElementById("bankWithdraw").addEventListener("click", function() {
+  socket.emit('action', "bankWithdraw", document.getElementById("bank-control-amount").value);
+});
+
 document.getElementById('properties').addEventListener('change', function() {
   document.getElementById('property-display').style.visibility = "visible";
 
