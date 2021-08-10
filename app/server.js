@@ -64,7 +64,7 @@ io.on('connection', function(socket) {
       name: name,
       color: colors[connectedPlayers],
       location: "1",
-      hasCar: true,
+      hasCar: false,
       capital: 75000
     };
 
@@ -72,7 +72,7 @@ io.on('connection', function(socket) {
     gamestate['current_turn']['playerID'] = socket.id
 
     io.sockets.emit("current players", gamestate);
-    io.sockets.emit('log', name + " joined the game");
+    io.sockets.emit('log', name + " anslöt till spelet");
   });
 
   socket.on('ping', function() {
@@ -85,9 +85,9 @@ io.on('connection', function(socket) {
     var own_turn = gamestate['current_turn']['playerID'] == socket.id;
     var player = gamestate['players'][socket.id] || {};
 
-    if (action == "end turn" && gamestate['current_turn']['hasRolled']){
+    if (action == "end turn"){
       turn_logic.nextTurn(gamestate, turn_order)
-      io.sockets.emit('log', player.name + " ended his turn");
+      io.sockets.emit('log', player.name + " avslutade sin tur");
       return
     }
 

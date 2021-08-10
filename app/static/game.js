@@ -19,8 +19,16 @@ document.getElementById("playerNameSend").addEventListener("click", function() {
   socket.emit('new player', document.getElementById("playerName").value);
 });
 
-document.getElementById("roll").addEventListener("click", function() {
-  socket.emit('action', "roll");
+document.getElementById("rollAndGo").addEventListener("click", function() {
+  socket.emit('action', "rollAndGo");
+});
+
+document.getElementById("rollOne").addEventListener("click", function() {
+  socket.emit('action', "roll", 1);
+});
+
+document.getElementById("rollTwo").addEventListener("click", function() {
+  socket.emit('action', "roll", 2);
 });
 
 document.getElementById("startGame").addEventListener("click", function() {
@@ -59,8 +67,24 @@ document.getElementById("bankDeposit").addEventListener("click", function() {
   socket.emit('action', "bankDeposit", document.getElementById("bank-control-amount").value);
 });
 
+document.getElementById("transferMoney").addEventListener("click", function() {
+  socket.emit('action', "transferMoney", [document.getElementById("transfer-control-players").value, document.getElementById("transfer-amount").value]);
+});
+
 document.getElementById("bankWithdraw").addEventListener("click", function() {
   socket.emit('action', "bankWithdraw", document.getElementById("bank-control-amount").value);
+});
+
+document.getElementById("sellCar").addEventListener("click", function() {
+  socket.emit('action', "sellCar");
+});
+
+document.getElementById("buyCar").addEventListener("click", function() {
+  socket.emit('action', "buyCar");
+});
+
+document.getElementById("goTo").addEventListener("click", function() {
+  socket.emit('action', "goTo", document.getElementById("goToSquare").value);
 });
 
 document.getElementById('properties').addEventListener('change', function() {
@@ -153,10 +177,14 @@ socket.on('current players', function(gamestate){
 
   if (gamestate['active']){
     document.getElementById('startupScreen').style.display = 'none';
+    document.getElementById('log').style.display = 'block';
     draw_player_portraits(gamestate)
 
     if (document.getElementById('properties').innerHTML == ""){
       populate_property_selector(gamestate);
+    }
+    if (document.getElementById('transfer-control-players').innerHTML == ""){
+      populate_transfer_selector(gamestate)
     }
   }else{
     draw_player_startup(players)
@@ -214,6 +242,18 @@ function populate_property_selector(gamestate){
       option.innerHTML = tile.title.replace('- ', '');
       document.getElementById('properties').appendChild(option)
     }
+  }
+}
+
+function populate_transfer_selector(gamestate){
+  document.getElementById('transfer-control-players').innerHTML = "";
+  var players = gamestate['players']
+  for (var id in players){
+    var player = gamestate['players'][id];
+    var option = document.createElement('option');
+    option.value = id;
+    option.innerHTML = player.name
+    document.getElementById('transfer-control-players').appendChild(option)
   }
 }
 
@@ -304,6 +344,10 @@ function draw_player_startup(players) {
       li.innerHTML = player.name
       ul.appendChild(li)
   }
+}
+
+function draw_tips(context, tiles, gamestate){
+  
 }
 
 function draw_tiles(context, tiles, gamestate){

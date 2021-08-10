@@ -12,8 +12,7 @@
     <div id="left">
       <div id="canvas-container">
         <canvas id="canvas"></canvas>
-        <ul id="log">
-            <li>Game initialized</li>
+        <ul id="log" style="display: none;">
         </ul>
         <div id="startupScreen">
           Current players:
@@ -36,12 +35,20 @@
       <div id="action-container">
         
         <div id="turn-control" class="control-segment">
-          <button id="roll">Gå <i class="fas fa-dice"></i> </button>
+          <div class="title">Tur</div>
+          <button id="rollAndGo">Rulla & gå <i class="far fa-caret-square-right"></i> </button>
           <button id="endTurn">Avsluta tur</button>
           <button id="hidePlayers">Dölj spelare</button>
         </div>
+
+        <div id="roll-control" class="control-segment">
+          <div class="title">Rulla tärning</div>
+          <button id="rollOne">1 <i class="fas fa-dice-three"></i> </button>
+          <button id="rollTwo">2 <i class="fas fa-dice"></i> </button>
+        </div>
         
         <div id="property-control" class="control-segment">
+          <div class="title">Tomter</div>
           <label for="properties">Välj tomt:</label>
           <select name="properties" id="properties"></select>
           
@@ -81,12 +88,25 @@
         </div>
 
         <div id="bank-control" class="control-segment">
+          <div class="title">Bank</div>
           <input type="number" id=bank-control-amount>
           <button id=bankWithdraw>Ta ut <i class="far fa-plus-square"></i></button>
           <button id=bankDeposit>Sätt in <i class="far fa-minus-square"></i></button>
         </div>
 
+        <div id="transfer-control" class="control-segment">
+          <div class="title">Överför mellan spelare</div>
+          <select name="transfer-players" id="transfer-control-players"></select>
+          <input type="number" id="transfer-amount">
+          <button id="transferMoney">Överför <i class="far fa-arrow-alt-circle-right"></i></button>
+        </div>
+
         <div id="misc" class="control-segment">
+          <div class="title">Annat</div>
+          <button id="buyCar">Köp bil</button>
+          <button id="sellCar">Sälj bil</button>
+          <button id="goTo">Gå till ruta: </button>
+          <input type="number" id="goToSquare" style="width:45px;">
           <button>Gå i konkurs <i class="fas fa-book-dead"></i></button>
         </div>
 

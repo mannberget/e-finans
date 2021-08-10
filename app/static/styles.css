@@ -105,6 +105,12 @@ canvas {
     border-bottom: 1px dotted black;
 }
 
+.control-segment .title{
+    text-align: center;
+    color:gray;
+    padding-bottom: 5px;
+}
+
 #property-display{
     height:200px;
     width:180px;
